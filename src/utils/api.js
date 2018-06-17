@@ -28,7 +28,7 @@ function formatQuestions (questions) {
   const questionIds = Object.keys(questions)
 
   return questionIds.reduce((formattedQuestions, id) => {
-    formattedQuestions[id] = flattenVote(questions[id])
+    formattedQuestions[id] = flattenQuestion(questions[id])
     return formattedQuestions
   }, {})
 }
@@ -52,7 +52,7 @@ export function getInitialData () {
     _getUsers(),
     _getQuestions(),
   ]).then(([users, questions]) => ({
-    users: formattedUsers(users),
+    users: formatUsers(users),
     questions: formatQuestions(questions),
   }))
 }
