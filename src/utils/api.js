@@ -62,6 +62,6 @@ export function saveQuestion (question) {
     .then((q)  => flattenQuestion(q))
 }
 
-export function saveQUestionAnswer (args) {
+export function saveQuestionAnswer (args) {
   return _saveQuestionAnswer(args)
 }
