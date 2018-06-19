@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { handleAddQuestion } from '../actions/questions'
 
 class AddQuestion extends Component {
   state = {
-    optionOne: '',
-    optionTwo: '',
+    optionOneText: '',
+    optionTwoText: '',
   }
 
   handleInputChange = (e) => {
@@ -17,36 +19,36 @@ class AddQuestion extends Component {
   handleSubmit = (e) => {
     e.preventDefault()
 
-    console.log('Todo', this.state)
+    this.props.dispatch(handleAddQuestion(this.state))
   }
 
   render() {
-    const { optionOne, optionTwo } = this.state
+    const { optionOneText, optionTwoText } = this.state
     return (
       <form className='add-form' onSubmit={this.handleSubmit}>
         <h1 style={{marginBottom: 25}}>Would You Rather</h1>
 
-        <label className='label' htmlFor='optionOne'>Option One</label>
+        <label className='label' htmlFor='optionOneText'>Option One</label>
         <input
-          value={optionOne}
+          value={optionOneText}
           onChange={this.handleInputChange}
-          name='optionOne'
+          name='optionOneText'
           className='input'
-          id='optionOne'
+          id='optionOneText'
           type='text'
         />
 
-        <label className='label' htmlFor='optionTwo'>Option Two</label>
+        <label className='label' htmlFor='optionTwoText'>Option Two</label>
         <input
-          value={optionTwo}
+          value={optionTwoText}
           onChange={this.handleInputChange}
-          name='optionTwo'
+          name='optionTwoText'
           className='input'
-          id='optionTwo'
+          id='optionTwoText'
           type='text'
         />
 
-        <button className='btn' type='submit' disabled={!(optionOne && optionTwo)}>
+        <button className='btn' type='submit' disabled={!(optionOneText && optionTwoText)}>
           Add Question
         </button>
       </form>
@@ -54,4 +56,4 @@ class AddQuestion extends Component {
   }
 }
 
-export default AddQuestion
+export default connect()(AddQuestion)
