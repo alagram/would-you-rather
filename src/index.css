@@ -48,6 +48,12 @@ a {
   text-transform: uppercase;
 }
 
+.login-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .question-author img {
   width: 40px;
   height: 40px;

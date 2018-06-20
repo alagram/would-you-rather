@@ -8,6 +8,8 @@ import Leaderboard from './Leaderboard'
 import AddQuestion from './AddQuestion'
 import Question from './Question'
 import Nav from './Nav'
+import Login from './Login'
+import Logout from './Logout'
 
 class App extends Component {
   componentDidMount () {
@@ -17,19 +19,29 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <Fragment><LoadingBar />
-          <div className='container'>
-            <Nav />
-            { this.props.loading === true
-              ? null
-              : <div>
-                  <Route path='/' exact component={Dashboard} />
-                  <Route path='/leaderboard' component={Leaderboard} />
-                  <Route path='/questions/:id' exact component={Question} />
-                  <Route path='/add' component={AddQuestion} />
+        <Fragment>
+          {this.props.authedUser === null
+            ? (<Login />)
+            :
+            (
+              <Fragment>
+                <LoadingBar />
+                <Logout />
+                <div className='container'>
+                  <Nav />
+                  { this.props.loading === true
+                    ? null
+                    : <div>
+                        <Route path='/' exact component={Dashboard} />
+                        <Route path='/leaderboard' component={Leaderboard} />
+                        <Route path='/questions/:id' exact component={Question} />
+                        <Route path='/add' component={AddQuestion} />
+                      </div>
+                  }
                 </div>
-            }
-          </div>
+              </Fragment>
+            )
+          }
         </Fragment>
       </Router>
     )
@@ -38,6 +50,7 @@ class App extends Component {
 
 function mapStateToProps ({ authedUser }) {
   return {
+    authedUser,
     loading: authedUser === null
   }
 }
