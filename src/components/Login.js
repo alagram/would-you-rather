@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { setAuthedUser }  from '../actions/authedUser'
-import Select from 'react-select'
-import 'react-select/dist/react-select.css'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { setAuthedUser }  from '../actions/authedUser';
+import Select from 'react-select';
+import 'react-select/dist/react-select.css';
 
 class Login extends Component {
   state = {
@@ -10,7 +10,7 @@ class Login extends Component {
   }
 
   handleValueChange = (e)  => {
-    const selectedValue = e.value
+    const selectedValue = e.value;
 
     this.setState(() => ({
       selectedValue
@@ -20,11 +20,11 @@ class Login extends Component {
   handleSubmit = (e) => {
     e.preventDefault()
 
-    this.props.dispatch(setAuthedUser(this.state.selectedValue))
+    this.props.dispatch(setAuthedUser(this.state.selectedValue));
   }
 
   render() {
-    const { options } = this.props
+    const { options } = this.props;
 
     return (
       <form onSubmit={this.handleSubmit}>
@@ -51,8 +51,8 @@ class Login extends Component {
 function mapStateToProps({ users }) {
   const options = Object.values(users).reduce((arr, user) => {
     const obj = {
-      ['value']: `${user.id}`,
-      ['label']: `${user.name}`,
+      'value': `${user.id}`,
+      'label': `${user.name}`,
     }
 
     arr.push(obj)
@@ -65,4 +65,4 @@ function mapStateToProps({ users }) {
   }
 }
 
-export default connect(mapStateToProps)(Login)
+export default connect(mapStateToProps)(Login);

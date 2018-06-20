@@ -1,7 +1,7 @@
-import { saveQuestionAnswer } from '../utils/api'
-import { showLoading, hideLoading } from 'react-redux-loading'
+import { saveQuestionAnswer } from '../utils/api';
+import { showLoading, hideLoading } from 'react-redux-loading';
 
-export const ADD_ANSWER = 'ADD_ANSWER'
+export const ADD_ANSWER = 'ADD_ANSWER';
 
 function addAnswer ({ authedUser, answer, qid }){
   return {

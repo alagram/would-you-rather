@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 class Dashboard extends Component {
   state = {
@@ -20,8 +20,8 @@ class Dashboard extends Component {
   }
 
   render() {
-    const { displayAnswered } = this.state
-    const { answered, unanswered } = this.props
+    const { displayAnswered } = this.state;
+    const { answered, unanswered } = this.props;
 
     const list = displayAnswered === true
       ? answered
@@ -59,7 +59,7 @@ class Dashboard extends Component {
 }
 
 function mapStateToProps ({ authedUser, questions, users }) {
-  const answers = users[authedUser].answers
+  const answers = users[authedUser].answers;
 
   const answered = answers.map((id) => questions[id])
     .sort((a, b) => b.timestamp - a.timestamp)
@@ -75,4 +75,4 @@ function mapStateToProps ({ authedUser, questions, users }) {
   }
 }
 
-export default connect(mapStateToProps)(Dashboard)
+export default connect(mapStateToProps)(Dashboard);

@@ -1,19 +1,19 @@
-import React, { Component, Fragment } from 'react'
-import { BrowserRouter as Router, Route } from  'react-router-dom'
-import { connect } from 'react-redux'
-import { handleInitialData } from '../actions/shared'
-import Dashboard from './Dashboard'
-import LoadingBar from 'react-redux-loading'
-import Leaderboard from './Leaderboard'
-import AddQuestion from './AddQuestion'
-import Question from './Question'
-import Nav from './Nav'
-import Login from './Login'
-import Logout from './Logout'
+import React, { Component, Fragment } from 'react';
+import { BrowserRouter as Router, Route } from  'react-router-dom';
+import { connect } from 'react-redux';
+import { handleInitialData } from '../actions/shared';
+import Dashboard from './Dashboard';
+import LoadingBar from 'react-redux-loading';
+import Leaderboard from './Leaderboard';
+import AddQuestion from './AddQuestion';
+import Question from './Question';
+import Nav from './Nav';
+import Login from './Login';
+import Logout from './Logout';
 
 class App extends Component {
   componentDidMount () {
-    this.props.dispatch(handleInitialData())
+    this.props.dispatch(handleInitialData());
   }
 
   render() {
@@ -55,4 +55,4 @@ function mapStateToProps ({ authedUser }) {
   }
 }
 
-export default connect(mapStateToProps)(App)
+export default connect(mapStateToProps)(App);

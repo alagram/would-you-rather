@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { handleAddQuestion } from '../actions/questions'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { handleAddQuestion } from '../actions/questions';
 
 class AddQuestion extends Component {
   state = {
@@ -17,13 +17,14 @@ class AddQuestion extends Component {
   }
 
   handleSubmit = (e) => {
-    e.preventDefault()
-    this.props.history.push('/')
-    this.props.dispatch(handleAddQuestion(this.state))
+    e.preventDefault();
+    this.props.history.push('/');
+    this.props.dispatch(handleAddQuestion(this.state));
   }
 
   render() {
-    const { optionOneText, optionTwoText } = this.state
+    const { optionOneText, optionTwoText } = this.state;
+
     return (
       <form className='add-form' onSubmit={this.handleSubmit}>
         <h1 style={{marginBottom: 25}}>Would You Rather</h1>
@@ -56,4 +57,4 @@ class AddQuestion extends Component {
   }
 }
 
-export default connect()(AddQuestion)
+export default connect()(AddQuestion);

@@ -7,4 +7,4 @@ const logger = (store) => (next) => (action) => {
   return returnValue
 }
 
-export default logger
+export default logger;

@@ -1,5 +1,5 @@
-import React from 'react'
-import { connect } from 'react-redux'
+import React from 'react';
+import { connect } from 'react-redux';
 
 function Leaderboard ({ users }) {
   return (
@@ -37,4 +37,4 @@ function mapStateToProps ({ users }) {
   }
 }
 
-export default connect(mapStateToProps)(Leaderboard)
+export default connect(mapStateToProps)(Leaderboard);

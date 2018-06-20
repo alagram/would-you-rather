@@ -1,12 +1,12 @@
-import React, { Component } from 'react'
-import { setAuthedUser }  from '../actions/authedUser'
-import { connect } from 'react-redux'
+import React, { Component } from 'react';
+import { setAuthedUser }  from '../actions/authedUser';
+import { connect } from 'react-redux';
 
 
 class Logout extends Component {
 
   handleLogout = () => {
-    this.props.dispatch(setAuthedUser(null))
+    this.props.dispatch(setAuthedUser(null));
   }
 
   render() {
@@ -31,4 +31,4 @@ function mapStateToProps({ authedUser }) {
   }
 }
 
-export default connect(mapStateToProps)(Logout)
+export default connect(mapStateToProps)(Logout);
