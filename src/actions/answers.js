@@ -13,7 +13,6 @@ function addAnswer ({ authedUser, answer, qid }){
 }
 
 export function handleAddAnswer (answerData) {
-  console.log('answerData: ', answerData)
   return (dispatch) => {
     dispatch(showLoading())
     return saveQuestionAnswer(answerData)
